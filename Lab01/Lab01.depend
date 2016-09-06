@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1473009824 source:c:\users\danny jazz\desktop\algorithms\lab01\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<sstream>
+	<time.h>
+
+1473125244 source:c:\users\danny jazz\desktop\_jordanhelpsalot\algorithms\lab01\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<algorithm>
+	<sstream>
+	<time.h>
+
