@@ -6,7 +6,7 @@
 #include <time.h>
 using namespace std;
 
-const int MAX_STRINGS = 50;
+const int MAX_STRINGS = 100;
 
 string string_generator(void);
 char character_generator(void);
@@ -15,6 +15,7 @@ int singleRound();
 
 int main()
 {
+    srand (time(NULL));
     cout << endl << "Data Set #1:" << endl;
     singleRound();
     cout << endl << "Data Set #2:" << endl;
@@ -28,6 +29,7 @@ int singleRound()
     string full_string;
     full_string = string_generator(); // generates the data
     cout << "original data: " << full_string << endl;      // test the data
+
     sorter(full_string);
 
     return 0;
@@ -70,13 +72,10 @@ char character_generator()
 
 string string_generator()
 {
-    srand (time(NULL));
     double string_length = 0,
            string_number = 0;
     string return_string = "";
-    string_length = rand() % 30 + 1;
-    //string_number = rand() % MAX_STRINGS + 1;
-    string_number = 30;
+    string_number = rand() % MAX_STRINGS + 1;
     for (short i=0; i < string_number; i++)
     {
         string_length = rand() % 30 + 1;
@@ -100,11 +99,15 @@ void sorter(string string_to_print)
         ++i;
     }
 
-    for (short i=0; i < 25; i++)
+    short counter = 1;
+    short count = 1;
+    while (counter != 0)
     {
-        for (short x = 0; x < 30; x++)
+        counter = 0;
+
+        for (short x = 0; x < MAX_STRINGS; x++)
         {
-            short y = x++,
+            short y = x+1,
                   xLength = 0,
                   yLength = 0;
             string temp = "";
@@ -112,16 +115,22 @@ void sorter(string string_to_print)
             xLength = string_list[x].length();
             yLength = string_list[y].length();
 
+
             if (xLength < yLength)
             {
                 temp = string_list[x];
                 string_list[x] = string_list[y];
                 string_list[y] = temp;
+                counter++;
             }
+
+
         }
+
     }
 
-    for (short i=0; i<30; i++)
+    cout << endl << "Sorted data: " ;
+    for (short i=0; i<MAX_STRINGS; i++)
     {
         cout << string_list[i] << " ";
     }
