@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1474315194 source:c:\users\danny jazz\downloads\main.cpp
+	<iostream>
+	<iostream>
+	<random>
+	<time.h>
+
