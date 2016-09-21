@@ -10,27 +10,27 @@ const int MAX_STRINGS = 100;
 
 string string_generator(void);
 char character_generator(void);
-void sorter(string string_to_print);
-int singleRound();
+void string_sorter(string string_to_print);
+int single_round();
 
 int main()
 {
     srand (time(NULL));
     cout << endl << "Data Set #1:" << endl;
-    singleRound();
+    single_round();
     cout << endl << "Data Set #2:" << endl;
-    singleRound();
+    single_round();
     cout << endl << "Data Set #3:" << endl;
-    singleRound();
+    single_round();
 }
 
-int singleRound()
+int single_round()
 {
     string full_string;
     full_string = string_generator(); // generates the data
     cout << "original data: " << full_string << endl;      // test the data
 
-    sorter(full_string);
+    string_sorter(full_string);
 
     return 0;
 }
@@ -88,7 +88,7 @@ string string_generator()
     return return_string;
 }
 
-void sorter(string string_to_print)
+void string_sorter(string string_to_print)
 {
     string string_list[MAX_STRINGS+1];
     int i = 0;
@@ -105,22 +105,22 @@ void sorter(string string_to_print)
     {
         counter = 0;
 
-        for (short x = 0; x < MAX_STRINGS; x++)
+        for (short i = 0; i < MAX_STRINGS; i++)
         {
-            short y = x+1,
-                  xLength = 0,
-                  yLength = 0;
-            string temp = "";
+            short j = i+1,
+                  i_term_length = 0,
+                  j_term_length = 0;
+            string tmp = "";
 
-            xLength = string_list[x].length();
-            yLength = string_list[y].length();
+            i_term_length = string_list[i].length();
+            j_term_length = string_list[j].length();
 
 
-            if (xLength < yLength)
+            if (i_term_length < j_term_length)
             {
-                temp = string_list[x];
-                string_list[x] = string_list[y];
-                string_list[y] = temp;
+                tmp = string_list[i];
+                string_list[i] = string_list[j];
+                string_list[j] = tmp;
                 counter++;
             }
 
