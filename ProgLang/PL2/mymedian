@@ -1,0 +1,45 @@
+#!/bin/bash
+#####Name: Jordan Hamilton
+###Script: mymedian
+#Function: Find median of a set of values
+####Input: ./mymedian (file to analyze)
+###Output: Message describing median of data set
+
+if [ -z "$1" ]
+then
+	echo "You must enter a file name" 
+	exit 1
+fi
+
+counter=0
+half_counter=0
+declare -a box
+
+sort $1 > newFILE.tmp -n
+while IFS= read -r line	#reads in file, line by line
+do
+	[ -z "$line" ] && continue	#skips any blank lines
+	box[$counter]=$line
+	((counter++))
+done < newFILE.tmp
+
+if ((counter % 2 == 0))
+then
+	((half_counter = (counter / 2) - 1))
+	value1=${box[$half_counter]}
+	value2=${box[$half_counter+1]}
+	echo "Median Of Dataset: "
+	median= echo "scale=1;(($value1 + $value2) / 2.0)" | bc -l
+else
+	((half_counter = ((counter + 1) / 2)-1))
+	
+	median=${box[$half_counter]}
+	
+	echo "Median Of Dataset: $median"
+fi
+rm newFILE.tmp
+
+
+
+
+

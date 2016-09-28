@@ -1,0 +1,9 @@
+/*example of MAKEFILE*/
+/*name this file Makefile, capital M with no extension (important) and put it in the same directory as the program you're compiling */
+CLIBS = <tab> -lm
+CFLAGS = <tab> -ansi
+
+Cprimer.exe: <tab> Cprimer.c
+<tab><tab><tab> gcc $(CFLAGS) Cprimer.c -o Cprimer.exe $(CLIBS)
+
+/* on command line, go to directory your makefile is in and type "make" */

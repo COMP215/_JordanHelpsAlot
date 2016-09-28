@@ -1,0 +1,5 @@
+CLIBS=	-lm
+CFLAGS=	-ansi
+
+Csample.exe:	Cprimer.c
+			gcc $(CFLAGS) sampleC.c -o Csample.exe $(CLIBS)

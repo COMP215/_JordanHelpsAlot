@@ -1,0 +1,20 @@
+#!/bin/bash
+#####Name: Jordan Hamilton
+###Script: myoccur
+#Function: Find the average of a set of values
+####Input: ./myoccur (search word) (file to search)
+###Output: Number of occurences of word in file
+
+if [ -z "$1" ]
+then
+	echo "You must enter a file name" 
+	exit 1
+fi
+
+grep -c -i "$1" $2
+
+
+
+
+
+

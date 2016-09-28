@@ -1,0 +1,19 @@
+#!/bin/bash
+#####Name: Jordan Hamilton
+###Script: myfind
+#Function: Search a directory for a file
+####Input: ./myfind (file to search for)
+###Output: Message describing success or failure of the search
+
+if [ -z "$1" ]
+then
+	echo "You must enter a file name" 
+	exit 1
+fi
+
+if [ -e $1 ]
+then
+    echo "The file is in this directory"
+else
+    echo "The file is not in this directory"
+fi

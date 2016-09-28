@@ -1,0 +1,29 @@
+#!/bin/bash
+#####Name: Jordan Hamilton
+###Script: myaverage
+#Function: Find the average of a set of values
+####Input: ./myaverage (file for value input) - Input is list of values
+###Output: Message describing average value
+
+if [ -z "$1" ]
+then
+	echo "You must enter a file name" 
+	exit 1
+fi
+total=0
+avg=0
+counter=0
+while IFS= read -r line	#reads in file, line by line
+do
+	[ -z "$line" ] && continue	#skips any blank lines
+	((total = total + line))		
+	((counter++))
+done < "$1"
+((avg = total/counter))
+
+echo "Average Value: $avg"
+
+exit 0
+
+
+

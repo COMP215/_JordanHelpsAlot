@@ -1,0 +1,47 @@
+#!/bin/bash
+#####Name: Jordan Hamilton
+###Script: myconvert
+#Function: Convert DEM file to list of numbers
+####Input: ./myconvert (DEM file) (destination name)
+###Output: No terminal output - New file created in directory storing ########## values obtained from DEM file
+
+if [ -z "$1" ]
+then
+	echo "You must enter a file name" 
+	exit 1
+fi
+
+if [ -e $2 ]
+then
+	echo "Output file already exists. Old file will be deleted"
+	rm $2    
+fi
+
+counter=0
+while IFS= read -r line	#reads in file, line by line
+do
+	[ -z "$line" ] && continue	#skips any blank lines
+	((counter++))
+	if ((counter > 5))
+	then
+		if ((counter = 6))
+		then			
+			if echo "$line" | grep -q -i "data"
+			then
+				continue
+			fi
+		fi
+		for word in $line
+		do
+			echo "$word" >> $2
+		done
+	fi
+		
+done < "$1"
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+Graphs:
+	-G = ( V, E )
+	-V = set of vertices (nodes)
+	-E = set of edges
+-Graphs are represented as pictures
+-set: a collection of objects where each element is unique and order doesn't matter
+-arrows: indicate a directed graph (no arrows means it goes both ways within DG)
+-Example:
+	-G = (V,E)
+	-V = {A,B,C,D}
+	-E = {(A,C),(C,A),(C,D)... (2^8 pairs)}
+
+-How do we store a graph in memory?
+	-Matrix: Makes sense, but can become inefficient
+	-Adjacency List:
+		-A : {B, C}
+		-B : {A, D}  etc...
+
