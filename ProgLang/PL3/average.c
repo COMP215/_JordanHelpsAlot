@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main (int argc, char **argv) {
-	float number,
+	float subtotal,
 		 sum = 0,
 		 average = 0;
 	short counter = 0;
@@ -9,8 +9,8 @@ int main (int argc, char **argv) {
 	fp = fopen (argv[1], "r"); 
 	
 	if (fp) {
-		while (fscanf (fp, "%f", &number) != EOF){ 
-			sum=sum+number;
+		while (fscanf (fp, "%f", &subtotal) != EOF){ 
+			sum=sum+subtotal;
 			counter++;
 		}
 		fclose (fp);
