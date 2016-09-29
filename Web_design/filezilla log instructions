@@ -1,0 +1,9 @@
+Instructions for fz:
+	-Host: example-> "cs.wheatoncollege.edu"
+	-Our input:
+		-Host=		sftp://cs.wheatoncollege.edu
+		-username=	jhamilton
+		-password=	j995
+	-put your own files in the directory labeled "www"
+	-must rename your primary .html file "index" if not already
+		

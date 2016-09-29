@@ -1,0 +1,16 @@
+Look up color stuff and picture stuff for Monday
+Also peruse gousies website more closely
+
+http://cs.wheatoncollege.edu/mgousie/
+	-http: web
+	-cs: name of a computer
+	-wheatoncollege.edu: domain
+	-mgousie: directory within cs (index.html is default file)
+
+ file:
+	-<style type="text/css">
+		body {
+			font-family: Times, serif;
+			font-size: 18px;
+		}
+	</style>
