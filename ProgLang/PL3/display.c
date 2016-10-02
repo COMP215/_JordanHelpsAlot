@@ -27,7 +27,7 @@ int main (int argc, char **argv) {
 			}
 			else if (strcmp(argv[1],"-b")==0){
 				while (fscanf (fp, "%s", &new_line)!=EOF){
-					if (strcmp(new_line,"\n")==0){
+					if (strcmp(&new_line,"\n")==0){
 						counter++;
 						printf("%2.0f|%s\n", counter, &new_line);
 					}
@@ -35,10 +35,8 @@ int main (int argc, char **argv) {
 			}
 		}	
 	}
-	
-	else if ( argc == 3 ){
-		double duh;
-	}
+	fcloseall();
+
 	
 	return 0;
 }

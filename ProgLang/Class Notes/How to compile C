@@ -5,6 +5,7 @@ gcc -ansi Cprimer.c -o Cprimer.exe -lm
 	>-o: tell it we want to name the output file ourselves
 	>Cprimer.exe: what we want to call our output
 	>lm >l=library >m=math (standard library you'll be using alot)
+	*
 
 
 
