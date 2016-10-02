@@ -1,0 +1,2 @@
+#!/bin/bash
+chromium-browser http://stackoverflow.com/questions/4955198/what-does-dereferencing-a-pointer-mean
