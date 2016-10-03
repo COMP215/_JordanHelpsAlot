@@ -25,8 +25,7 @@ long_line_column=72
 [files]
 current_page=1
 FILE_NAME_0=427;C++;0;EUTF-8;1;1;0;%2Fhome%2Fjordan%2FDesktop%2F_JordanHelpsAlot%2FScratch_Algo%2Fgraph%2FGraph.hpp;0;4
-FILE_NAME_1=396;C++;0;EUTF-8;1;1;0;%2Fhome%2Fjordan%2FDesktop%2F_JordanHelpsAlot%2FScratch_Algo%2Fgraph%2FGraph.cpp;0;4
-FILE_NAME_2=526;C++;0;EUTF-8;1;1;0;%2Fhome%2Fjordan%2FDesktop%2F_JordanHelpsAlot%2FScratch_Algo%2Fgraph%2Fmain.cpp;0;4
+FILE_NAME_1=553;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fjordan%2FDesktop%2F_JordanHelpsAlot%2FWeb_design%2Fclass3%2FpracticeHTML.html;0;4
 
 [VTE]
 last_dir=/home/jordan/Desktop
@@ -42,3 +41,6 @@ C++FT_02_LB=test
 C++FT_02_CM=g++ "%f" -o "%e"
 C++FT_02_WD=
 filetypes=C++;
+EX_00_LB=_Execute
+EX_00_CM=builtin
+EX_00_WD=
