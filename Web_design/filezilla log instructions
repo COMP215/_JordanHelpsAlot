@@ -4,6 +4,7 @@ Instructions for fz:
 		-Host=		sftp://cs.wheatoncollege.edu
 		-username=	jhamilton
 		-password=	j995
+		-port=		22
 	-put your own files in the directory labeled "www"
 	-must rename your primary .html file "index" if not already
 		
