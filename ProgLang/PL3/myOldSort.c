@@ -24,6 +24,8 @@ int getLineCount(char *fileName) {
 int main (int argc, char **argv) {
 	
 	char *fileName = argv[1];
+	
+	printf ("here\n");
 	char *flag = NULL;
 	if (argc == 3) {flag = argv[1]; fileName = argv[2];}
 	printf("Flag Entry: %s\n", flag);

@@ -1,3 +1,10 @@
+/* Program:		Caverage.c
+ * Author:		Jordan Hamilton
+ * Function:	Display the average value of a set of values
+ * Input:		file containing integers or floats, one per line
+ * Output:		Displays average reading to std out
+ */ 
+
 #include<stdio.h>
 
 int main (int argc, char **argv) {
@@ -17,7 +24,7 @@ int main (int argc, char **argv) {
 	} else { printf("error, filestream failed to open\n"); }
 	
 	average = sum/counter;
-	printf("Average: %5.2f\n", average);
+	printf("Average: %8.3f\n", average);
 	return 0;
 }
 

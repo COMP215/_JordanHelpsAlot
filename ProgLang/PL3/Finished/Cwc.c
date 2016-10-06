@@ -1,7 +1,22 @@
+/* Program:		Cwc.c
+ * Author:		Jordan Hamilton
+ * Function:	Display the number of words, lines, and bytes which exist in a given file
+ * Input:		Any file containing whitespace delineated words (Most often a plain text file)
+ * Output:		Outputs file information to std out (typically output is displayed in terminal)
+ */ 
+
 #include<stdio.h>
-const int MAX_STR_LEN=60;
+const int MAX_STR_LEN=60; /* Declare the maximum length any strings may be which are  */
+
+void countCharsLines( int *char_count, int *line_count,  char* fileName );
+void countWords( int *word_count, char* fileName );
 
 void countCharsLines( int *char_count, int *line_count,  char* fileName ) {
+/*	PRE:  fileName string assigned, char_count and line_count exist but are empty
+ *  POST: Accurate values within char_count and line_count
+ * 		->fileName: string containing the name of the file for sort	
+ * 		->char_count: number of characters in file
+ * 		->line_count: number of lines in file	*/
 	char charBuffer;
 	*char_count = 0;
 
@@ -19,6 +34,10 @@ void countCharsLines( int *char_count, int *line_count,  char* fileName ) {
 }
 
 void countWords( int *word_count, char* fileName ) {
+/*	PRE:  fileName string assigned, word_count exists but is empty
+ *  POST: Accurate value within word_count
+ * 		->fileName: string containing the name of the file for sort	
+ * 		->word_count: number of words in file	*/
 	char wordBuffer[MAX_STR_LEN];
 	*word_count = 0;
 
