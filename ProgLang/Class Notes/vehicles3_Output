@@ -1,0 +1,30 @@
+Passengers for vehicle 1? 10
+Passengers for vehicle 2? 13
+Enter data for vehicle 2
+How powered? 45
+Top speed? 70
+Passengers for vehicle 3? 2
+Enter data for vehicle 3
+Horsepower? 56
+Fuel type? diesel
+Top speed? 89
+
+Output:
+Data for vehicle 1
+Horsepower : 235
+Fuel type  : diesel
+Top speed  : 81
+Passengers : 10
+
+Data for vehicle 2
+How powered: 45
+Top speed  : 70
+Passengers : 13
+
+Data for vehicle 3
+Horsepower : 56
+Fuel type  : diesel
+Top speed  : 89
+Passengers : 2
+Environtype: land
+
