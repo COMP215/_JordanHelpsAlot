@@ -5,6 +5,7 @@
 
 #include "Graph.hpp"
 #include <string>
+#include <algorithm>
 
 
 Node::Node()
@@ -151,6 +152,56 @@ void Graph::AddEdge(char source, char target, int weight){
 	master_edge_list.push_back(new_edge_loc);
 }
 
+Graph* Graph::PrimMST(void){
+	//vector<Node*> graph_vector;
+	//vector<Edge*> master_edge_list;
+	Graph* newGraph;
+	Node* startPos = graph_vector.at(0);
+	vector<Edge*> official_moves;
+	vector<Edge*> potential_moves;
+	vector<Node*> visited_vertices;
+	Edge* temp_edge;
+	
+	visited_vertices.push_back(startPos);
+	cout << "adding startpos to list of visted vertices" << endl;
+	
+	for (vector<Edge*>::iterator i = master_edge_list.begin(); i != master_edge_list.end(); ++i)
+	{
+		temp_edge = *i;
+		if (temp_edge->vertA_loc == startPos) { //If the node you wanted was in A position of an edge
+			potential_moves.push_back(temp_edge);
+			cout << "pushed B back" << endl;
+		}
+		else if (temp_edge->vertB_loc == startPos) { //If the node you wanted was in B position of an edge
+			potential_moves.push_back(temp_edge);
+			cout << "pushed A back" << endl;
+		}
+	}
+
+	
+	
+	Edge* smallest_edge;
+	if (!potential_moves.empty()){
+		smallest_edge = potential_moves.at(0);
+		for (vector<Edge*>::iterator i = potential_moves.begin(); i != potential_moves.end(); ++i)
+		{
+			temp_edge = *i;
+			if (temp_edge->weight < smallest_edge->weight) { 
+				smallest_edge = temp_edge; 
+			}
+		}
+		official_moves.push_back(smallest_edge);
+		
+		if (find(visited_vertices.begin(), visited_vertices.end(), smallest_edge->vertA_loc) != visited_vertices.end()) { 
+			visited_vertices.push_back(smallest_edge->vertB_loc); }
+		else {
+			visited_vertices.push_back(smallest_edge->vertA_loc); }
+	}
+	
+	
+	newGraph = new Graph();
+	return newGraph;
+}
 
 void Graph::DisplayEdges(void){
 	Edge* temp_edge;

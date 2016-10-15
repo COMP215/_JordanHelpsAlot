@@ -6,7 +6,10 @@
 
 int main()
 {
+
+	
 	Graph g;
+	Graph* newG;
 
 	g.AddVertex('1');
 	g.AddVertex('2');
@@ -25,6 +28,11 @@ int main()
 	g.AddEdge('2', '7', 4);
 	
 	g.DisplayEdges();
+	
+	newG = g.PrimMST();
+	
+	
+	
 
 	return 0;
 }

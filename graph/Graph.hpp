@@ -52,6 +52,7 @@ public:
 	bool isBipartite(void);
 	void AddEdge(char source, char target);
 	void AddEdge(char source, char target, int weight);
+	Graph* PrimMST(void);
 	void DisplayEdges(void);
 };
 /*-------------------------------------------*/

@@ -1,0 +1,85 @@
+<!DOCTYPE>
+<html>
+<head>
+	<style type="text/css">
+		body {
+			background-color: #E2AD73;
+		}
+		
+		.sidebar {
+			border-radius: 25px;
+			float: left;
+			width: 200px;
+			background-color: #155984;
+			padding-left: 0px;
+			padding-bottom: 10px;
+		}
+		
+		.sidebar h2 {
+			text-align:center;
+			color: #30FBF6;
+			padding-left: 10px;
+			padding-right: 10px;
+			font-size: 20px;
+			line-height: 110px;
+			vertical-align: middle;
+
+		}
+		
+		.bubble {
+			float: left;
+			width: 200px;
+			height: 150px;
+			
+		}
+		
+		nav .bubble {
+			border-bottom: 3px solid #9EF9FF;
+		}
+		
+		nav .bubble.top {
+			border-bottom: 3px solid #9EF9FF;
+		}
+		
+		nav .bubble.bottom {
+			border-bottom: 0px solid #9EF9FF;
+		}
+		
+		nav a, nav a:visited {
+			padding: 5px 5px 5px 15px;
+			display: block;
+			text-decoration: none;
+			background-color: #975CB9;
+		}
+		nav .bubble:hover, nav .bubble:active, nav .bubble:focus {
+			background-color: #975CB9;
+			color: #F0F0F0;
+		}
+		nav .bubble.top:hover, nav .bubble.top:active, nav .bubble.top:focus {
+			background-color: #975CB9;
+			color: #F0F0F0;
+			border-top-left-radius: 25px;
+			border-top-right-radius: 25px;	
+		}
+		nav .bubble.bottom:hover, nav .bubble.bottom:active, nav .bubble.bottom:focus {
+			background-color: #975CB9;
+			color: #F0F0F0;
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class=sidebar>
+		<nav>
+		<div class="bubble top"><h2>Test item</h2></div>
+		
+		<div class=bubble><h2>Another test</h2></div>
+
+		<div class=bubble><h2>Another!</h2></div>
+
+		<div class="bubble bottom"><h2>Yeah yeah yeah</h2></div>
+		</nav>
+	</div>
+</body>

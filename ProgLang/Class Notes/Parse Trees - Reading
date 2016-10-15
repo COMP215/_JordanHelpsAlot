@@ -1,0 +1,23 @@
+From Class:
+------------------------
+	-Grammar: a way to formally define a language
+	-Context Free Grammar (CFG): A series of "productions"
+	-Tokens: Reserved words, constants/literals, special symbols, and variable names
+	-Production: A rule within a grammar with 3 parts
+		-(Non-Terminal)/(Metasymbol)/(Terminal)
+		-Non-Terminal:	Symbol that can be broken down into tokens
+		-Metasymbol:	"::=" (Is defined as), "<???>" (Non-Terminal)
+		-Terminal:		Token from the language
+		
+		
+	
+Section 2.3 --- Parsing:
+------------------------
+	-Parser's job is to call the scanner, assemble a syntax tree, and pass that tree to the compiler
+	-Context Free Grammar (CFG): 
+	-Parser: Language Recognizer
+	-2 main categories:
+		-(LL) Left-to-right, Left-most derivation
+		-(LR) Left-to-right, Right-most derivation
+	-LL is predicative and top down (focus for the project)
+	
