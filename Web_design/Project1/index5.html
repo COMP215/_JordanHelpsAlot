@@ -3,12 +3,20 @@
 <head>
 	<style type="text/css">
 		body {
-			background-image: url("fleur-de-lys-pattern.jpg");
-			background-size: 1000px 1000px;
+			background-image: url("quebec-background.png");
+			background-size: 1500px 1500px;
 		}
 		
 		td {
-			background-color: #95ACC0;
+			background-color: #CACACA;
+		}
+		
+		.content {
+			float: right;
+			float: top;
+			height: 300px;
+			width: 300px;
+			background-color: #A9A9A9;
 		}
 		
 		.upper-left {
@@ -26,7 +34,7 @@
 		.upper-right {	
 			width: 1000px;
 			height: 150px;
-			border: 10px solid #2C4799;
+			border: 10px solid #000000;
 			border-bottom-left-radius: 25px; 
 			border-top-right-radius: 25px;
 		}
@@ -34,7 +42,7 @@
 		.lower-left {
 			width: 120px; 
 			height: 700px;
-			border: 10px solid #2C4799;
+			border: 10px solid #000000;
 			border-bottom-left-radius: 25px; 
 			border-top-right-radius: 25px;
 		}
@@ -48,11 +56,13 @@
 		}
 		
 		.sidebar {
+			position: fixed;
+			bottom: 40px;
+			left: 23px;
 			border-top-left-radius: 15px;
 			border-top-right-radius: 15px;
 			border-bottom-left-radius: 15px;
 			width: 120px;
-			height: 680px;
 			background-color: #155984;
 			padding-left: 0px;
 			padding-right: 0px;
@@ -64,17 +74,19 @@
 			color: #30FBF6;
 			padding-left: 10px;
 			padding-right: 10px;
-			font-size: 20px;
-			line-height: 50px;
+			font-family: Verdana, Geneva, sans-serif;
+			font-size: 18px;
 			vertical-align: top;
+			padding-top: 20px;
 
 		}
 		
 		.bubble {
 			float: left;
+			height: 60px;
 			width: 120px;
 			border-bottom: 3px solid #9EF9FF;
-			background-color: #2C4799;
+			background-color: #002495;
 		}
 		
 		.bubble.top {
@@ -140,11 +152,16 @@
 				</div>
 			</td>
 			<td class="lower-right">
-				<div style="width: 200px">
-				<p>Here will be some sample text in the form of new concepts for this project: </p>
-				<p>	-Label all the buttons</p>
-				<p>	-Colorize the buttons in a flowing pattern </p>
-				<p>	-fix up the logo in photoshop</p>
+				<div style="width: 1000px; height: 700px; padding:20px;">
+					<div style="width: 49%; float: left;">
+						<p>Here will be some sample text in the form of new concepts for this project: </p>
+						<p>	-Label all the buttons</p>
+						<p>	-Colorize the buttons in a flowing pattern </p>
+						<p>	-fix up the logo in photoshop</p>
+					</div>
+				<div class="content" style="width: 49%; height: 100%; float:right; padding: 10px;">
+					<div style="height: 100%; border: 2px solid #555555;">
+					</div>
 				</div>
 			</td>
 			
