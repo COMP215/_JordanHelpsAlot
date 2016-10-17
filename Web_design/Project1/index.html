@@ -3,11 +3,35 @@
 <head>
 	<style type="text/css">
 		body {
-			background-image: url("blue-white.svg");
+			background-image: url("quebec-background.png");
+			background-size: 1500px 1500px;
+			background-attachment: fixed;
 		}
 		
 		td {
-			background-color: #95ACC0;
+			background-color: #CACACA;
+		}
+			
+		.list {
+			margin-left: 30px;
+		}
+		
+		.content {
+			padding: 10px;
+			display: inline;
+			float: right;
+			float: top;
+			height: 300px;
+			width: 300px;
+			background-color: #A9A9A9;
+			border-top-left-radius: 15px;
+		}
+		
+		.content h1 {
+			text-align: right;
+			line-height: 0px;
+			font-family: Verdana, Geneva, sans-serif;
+
 		}
 		
 		.upper-left {
@@ -19,39 +43,45 @@
 			background-image: url("new-jh-logo.png");
 			background-size: contain;
 			background-repeat: no-repeat;
-			border: 10px solid #000A3A;
+			border: 10px solid #001063;
 		}
 			
 		.upper-right {	
-			width: 1000px;
+			width: 1040px;
 			height: 150px;
-			border: 10px solid #2C4799;
+			background-image: url("quebec-banner.png");
+			background-size: 1080px 150px;
+			background-repeat: no-repeat;
+			border: 2px solid #000000;
 			border-bottom-left-radius: 25px; 
 			border-top-right-radius: 25px;
 		}
 		
 		.lower-left {
 			width: 120px; 
-			height: 700px;
-			border: 10px solid #2C4799;
+			height: 1500px;
+			border: 10px solid #878788;
 			border-bottom-left-radius: 25px; 
 			border-top-right-radius: 25px;
 		}
 		
 		.lower-right {
-			width: 1000px;
-			height: 700px;
+			width: 1040px;
+			height: 1500px;
 			border-top-left-radius: 25px; 
 			border-bottom-right-radius: 25px;
-			border: 10px solid #000A3A;
+			border: 10px solid #001063;
+			display:block;
 		}
 		
 		.sidebar {
+			position: fixed;
+			bottom: 167px;
+			left: 23px;
 			border-top-left-radius: 15px;
 			border-top-right-radius: 15px;
 			border-bottom-left-radius: 15px;
 			width: 120px;
-			height: 680px;
 			background-color: #155984;
 			padding-left: 0px;
 			padding-right: 0px;
@@ -60,30 +90,31 @@
 		
 		.sidebar h2 {
 			text-align:center;
-			color: #30FBF6;
-			padding-left: 10px;
-			padding-right: 10px;
-			font-size: 20px;
-			line-height: 50px;
+			color: #FFFFFF;
+			padding-left: 0px;
+			padding-right: 0px;
+			font-family: Verdana, Geneva, sans-serif;
+			font-size: 14px;
 			vertical-align: top;
+			padding-top: 7px;
 
 		}
 		
 		.bubble {
 			float: left;
+			height: 60px;
 			width: 120px;
-			border-bottom: 3px solid #9EF9FF;
-			background-color: #2C4799;
+			border-bottom: 3px solid #CACACA;
+			background-color: #002495;
 		}
 		
 		.bubble.top {
-			border-bottom: 3px solid #9EF9FF;
 			border-top-left-radius: 0px;
 			border-top-right-radius: 15px;
 		}
 		
 		.bubble.bottom {
-			border-bottom: 0px solid #9EF9FF;
+			border-bottom: 0px solid #CACACA;
 			border-bottom-left-radius: 15px;
 			border-bottom-right-radius: 0px;
 		}
@@ -107,44 +138,146 @@
 			border-bottom-left-radius: 15px;
 			border-bottom-right-radius: 15px;
 		}
+		
+		ul {
+		  margin-top: 0px;
+		  padding-top: 0;
+		  padding-left: 0px;
+		  padding-right: 0px;
+		  list-style-type: none;
+		  width: 500px;
+		}
+		 
+		ul h3 {
+		  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+		}
+		 
+		li {
+		  padding: 10px;
+		  height: 110px;
+		  width: 466px;
+		  overflow: auto;
+		}
+		
+		li img {
+		  height: 100px;
+		  width: 100px;
+		  float: left;
+		  margin: 0 0px 0 0;
+		  box-shadow: 5px 5px 10px;
+		}
+		 
+		li p {
+		  font: 200 17px/1.5 Verdana, Geneva, sans-serif;
+		  margin-top: 20px;
+		  padding-left: 120px;
+		  
+		}
+		 
+		li:hover {
+		  background: #eee;
+		  cursor: pointer;
+		}
+		
+		li:hover img{
+		  cursor: pointer;
+		  position: fixed;
+		  bottom: 170px;
+		  left: 230px;
+		  height: 300px;
+		  width: 300px;
+		}
+		
+		li:hover p{
+			padding-left: 0px;
+		}
+		
+		li.top:hover {
+			border-top-left-radius: 15px;
+		}
 
 	</style>
 </head>
 
 <body>
+	<a name="top"></a>
 	<table border="0" cellspacing="0" cellpadding="5">
 		<tr>
 			<td class="upper-left"></td>
-			<td class="upper-right"><h1>Main Title</h1></td>
+			<td class="upper-right"><h1 style="color: #FFFFFF; padding-bottom: 30px; padding-left: 20px;">Quebec: Pretty City Eh?</h1></td>
 		</tr>
 		<tr>
 			<td class="lower-left">
 				<div class=sidebar style="vertical-align: top;">
 					<table border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td class="bubble top"><h2>Test item</h2></td>
+							<td class="bubble top" ><a href="#trip"><h2>Highlights</h2></a></td>
 						<tr>
-							<td class="bubble"><h2>Test item</h2></td>
+							<td class="bubble"><a href="#city"><h2>About Quebec</h2></a></td>
 						<tr>
-							<td class="bubble"><h2>Test item</h2></td>
+							<td class="bubble"><a href="#sights"><h2>The Sights</h2></a></td>
 						<tr>
-							<td class="bubble"><h2>Test item</h2></td>
+							<td class="bubble"><a href="https://en.wikipedia.org/wiki/Quebec"><h2>Wikipedia</h2></a></td>
 						<tr>
-							<td class="bubble"><h2>Test item</h2></td>
-						<tr>
-							<td class="bubble"><h2>Test item</h2></td>
-						<tr>
-							<td class="bubble bottom"><h2>Test item</h2></td>
+							<td class="bubble bottom"><a href="#top"><h2>Go To Top</h2></a></td>
+
 					</table>
 				</div>
 			</td>
 			<td class="lower-right">
-				<div style="width: 200px">
-				<p>Here will be some sample text in the form of new concepts for this project: </p>
-				<p>	-Label all the buttons</p>
-				<p>	-Colorize the buttons in a flowing pattern </p>
-				<p>	-fix up the logo in photoshop</p>
-				</div></td>
+			<div style="width: 1020px; height: 700px; padding:10px; display: block; border-bottom: 2px dashed #6363FF; 
+						padding-bottom: 35px;">
+					<div style="width: 48%; height: 104%; float: left; border-right: 2px dashed #6363FF;">
+						<a name="trip"><h1>Quebec Trip</h1></a>
+						<p style="margin-right: 15px;">This past Summer, I had the oppurtunity to go to Quebec City (in Canada) with my girlfriend and her family. 
+						We had a fantastic time and explored a lot while we were there. I would definetly recommend this trip to anyone 
+						looking for a fun, extra-national adventure, without flying anywhere!</p>
+						<hr style="margin-right: 5px; border-top: 2px dashed #6363FF;">
+						<a name="city"><h1 style="text-align: right; margin-right: 15px;">About the City</h1></a>
+						<p style="margin-right: 15px;">Quebec is a beautiful, historical city, as well as a popular tourist destination. It is the only "Walled" city in North America, and it is the second largest 
+						province of Canada. Quebec is a city with a rich history, and a diverse population. It is one of the only Provinces
+						 in Canada to be predominantly French-speaking. <i>Trivia: Quebec produces 77% of the world's Maple Syrup</i></p>
+						<img src="Quebec_City-old-street.jpg" style="width: 90%;"></img>
+					</div>
+				<div class="content" style="width: 49%; height: 100%;">
+					<h1><i>Highlights</i></h1>
+					<div style="height: 93%; border: 2px solid #555555; border-top-left-radius: 15px;">
+						<ul>
+							<li class=top><img src="Thumbnails/Dre-and-j.png"></img><p>At the very start of our trip, Adriana and I look out over a beautiful view of the city</p>
+								</li>
+							<li><img src="Thumbnails/cafe.png"></img><p>Enjoying our stop at a local cafe!</p>
+								</li>
+							<li><img src="Thumbnails/pissed-off.png"></img><p style="margin-top: 0px;">Some members of our group begin to grow impatient with our team leader (AKA "Stop taking pictures Dave!")</p>
+								</li>
+							<li><img src="Thumbnails/cute-waterfall.png"></img><p>Quebec is renowned for its beautiful women :) </p>
+								</li>
+							<li><img src="Thumbnails/old-wall.png"></img><p>At the old city wall, just about to head in to Old Quebec - Montmorency Falls</p>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div style="padding: 10px; display: block;">
+				
+				<div style="width: 45%; float: left;">
+					<a name="sights"><h1 style="padding-bottom: 0px;">Sightseeing!</h1></a>
+					<p>Here are just a few places we visited on our trip:</p>
+					<p class=list >-> Old Quebec (The Walled Part)</p>
+					<p class=list >-> Montmorency Falls (>>pictured at right>>)</p>
+					<p class=list >-> Plains of Abraham</p>
+					<p class=list >-> Chateau Frontenac</p>
+					<p class=list >-> Musees de la civilisation</p>
+
+				</div>
+				<div style="width: 51%; float: right;">
+					<img src="waterfall-rainbow.jpg" style="width: 100%;"></img>
+				</div>
+				
+				
+			</div>
+			
+			</td>
+		
 			
 		</tr>
 	</table>
