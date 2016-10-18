@@ -6,6 +6,7 @@
 #include "Graph.hpp"
 #include <string>
 #include <algorithm>
+#include <fstream>
 
 
 Node::Node()
@@ -163,7 +164,6 @@ Graph* Graph::PrimMST(void){
 	Edge* temp_edge;
 	Edge* temp_edge2;
 	Node* temp_node;
-	Node* temp_node2;
 	int temp_counter = 0;
 	
 	visited_vertices.push_back(startPos);
@@ -298,6 +298,44 @@ Graph* Graph::PrimMST(void){
 	return newGraph;
 }
 
+
+Graph* Graph::Kruskal(void){
+	Node* temp_node;
+	Edge* smallest_edge;
+	Edge* temp_edge;
+	vector<Node*> visited_verts;
+	vector<Node*> alien_verts;
+	vector<Edge*> visited_edges;
+	vector<Edge*> alien_edges;
+	smallest_edge = master_edge_list.at(0);
+	
+	for (vector<Node*>::iterator i = graph_vector.begin(); i != graph_vector.end(); ++i)
+	{
+		temp_node = *i;
+		alien_verts.push_back(temp_node);
+	}
+	
+	for (vector<Edge*>::iterator i = master_edge_list.begin(); i != master_edge_list.end(); ++i)
+	{
+		temp_edge = *i;
+		alien_edges.push_back(temp_edge);
+	}
+	
+	for (vector<Edge*>::iterator i = alien_edges.begin(); i != alien_edges.end(); ++i)
+	{
+		temp_edge = *i;
+		if (temp_edge->weight < smallest_edge->weight) { 
+			smallest_edge = temp_edge; 
+		}
+	}	
+	cout << "Smallest Edge: " << smallest_edge->vertA << smallest_edge->vertB << " of weight-" << smallest_edge->weight << endl;
+	
+	Graph* NewG;
+	NewG = new Graph;
+	return NewG;
+}
+
+
 void Graph::DisplayEdges(void){
 	Edge* temp_edge;
 	for (vector<Edge*>::iterator i = master_edge_list.begin(); i != master_edge_list.end(); ++i)
@@ -307,7 +345,7 @@ void Graph::DisplayEdges(void){
 	}
 }
 
-void Graph::ToGraphviz()
+void Graph::ToGraphviz(string fileName)
 // Reads in a graph and prints out the graph into a DOT file used to visualize the graph
 // Needs a graph object for this method to be called, does not take anything in as an argument
 // Creates a new DOT file in the same directory as this program is in.
@@ -315,15 +353,16 @@ void Graph::ToGraphviz()
 	Edge* temp_edge;		// An Edge pointer used in the for loop
 	ofstream file_write;	// A file stream used to write to a new file
 
-	file_write.open("newGraph.dot");
-	
+	file_write.open(fileName);
+	file_write << "digraph G {" << endl << "\trankdir=LR;" << endl;
 	for (vector<Edge*>::iterator i = master_edge_list.begin(); i != master_edge_list.end(); ++i)
 	{
 		temp_edge = *i;
 
-		file_write << temp_edge->vertA << " -> " << temp_edge->vertB << " -- " << temp_edge->weight << endl;
+		file_write << "\t" << temp_edge->vertA << " -> " << temp_edge->vertB << " [label=" << temp_edge->weight << "]" << endl;
 
 	}
+	file_write << "}" << endl;
 	file_write.close();
 
 	cout << "Just made a new DOT file named: newGraph.dot" << endl;

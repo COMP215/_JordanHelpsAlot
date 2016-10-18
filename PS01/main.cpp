@@ -3,11 +3,13 @@
 #include "Graph.hpp"
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main()
 {
 	Graph N;	
 	Graph* newN;
+	Graph* newK;
 
 	N.AddVertex('A');
 	N.AddVertex('B');
@@ -29,9 +31,14 @@ int main()
 	N.AddEdge('F', 'D', 7);
 	N.AddEdge('F', 'G', 9);
 
+
+	newK = N.Kruskal();
+	/*
 	newN = N.PrimMST();
 	newN->DisplayEdges();
-
+	N.ToGraphviz("graph1.dot");
+	newN->ToGraphviz("graph2.dot");
+	*/
 
 	
 	

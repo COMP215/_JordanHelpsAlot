@@ -53,8 +53,9 @@ public:
 	void AddEdge(char source, char target);
 	void AddEdge(char source, char target, int weight);
 	Graph* PrimMST(void);
+	Graph* Kruskal(void);
 	void DisplayEdges(void);
-	void ToGraphviz();
+	void ToGraphviz(string fileName);
 };
 /*-------------------------------------------*/
 

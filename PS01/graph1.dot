@@ -1,0 +1,13 @@
+digraph G {
+	rankdir=LR;
+	A -> B [label=2]
+	A -> C [label=3]
+	A -> D [label=4]
+	B -> C [label=9]
+	B -> E [label=3]
+	C -> E [label=1]
+	C -> F [label=6]
+	E -> F [label=8]
+	F -> D [label=7]
+	F -> G [label=9]
+}

@@ -1,0 +1,10 @@
+
+Greedy Algorithms:
+	-Make locally optional decisions 
+		-take as many donuts as you want (no regard)
+		-Ex: Prims Algorithm for MST
+	-
+	
+Brute Force Algorithms:
+	-look at every possibility
+	-find the one that satisfies what you're looking for
