@@ -297,8 +297,24 @@ Graph* Graph::PrimMST(void){
 
 	return newGraph;
 }
+/*
+Edge* Graph::find_smallest_edge(void){
+	Edge* smallest_edge;
+	return smallest_edge;
+}
+*/
 
+subGraph::subGraph()
+{
+}
 
+bool subGraph::isCycle(void){
+	cout << "function worked: " << subG_edges.at(0)->weight << endl;
+	
+	
+	return true;
+}
+/*
 Graph* Graph::Kruskal(void){
 	Node* temp_node;
 	Edge* smallest_edge;
@@ -307,20 +323,24 @@ Graph* Graph::Kruskal(void){
 	vector<Node*> alien_verts;
 	vector<Edge*> visited_edges;
 	vector<Edge*> alien_edges;
-	smallest_edge = master_edge_list.at(0);
+	vector<subGraph*> subGraphs;
 	
+	//Fill alien vertices
 	for (vector<Node*>::iterator i = graph_vector.begin(); i != graph_vector.end(); ++i)
 	{
 		temp_node = *i;
 		alien_verts.push_back(temp_node);
 	}
 	
+	//Fill alien edges
 	for (vector<Edge*>::iterator i = master_edge_list.begin(); i != master_edge_list.end(); ++i)
 	{
 		temp_edge = *i;
 		alien_edges.push_back(temp_edge);
 	}
 	
+	//Find smallest edge in alien edges
+	smallest_edge = master_edge_list.at(0);
 	for (vector<Edge*>::iterator i = alien_edges.begin(); i != alien_edges.end(); ++i)
 	{
 		temp_edge = *i;
@@ -330,11 +350,34 @@ Graph* Graph::Kruskal(void){
 	}	
 	cout << "Smallest Edge: " << smallest_edge->vertA << smallest_edge->vertB << " of weight-" << smallest_edge->weight << endl;
 	
+	//check if there are already any subGraphs
+	if (subGraphs.empty()){
+		subGraph* working_sg;
+		working_sg = new subGraph;
+	}
+	else // meaning subGraphs already exist
+		//check if the new edge belongs in an existing subGraph
+		subGraphtemp_sg;
+		for (vector<subGraph*>::iterator i = subGraphs.begin(); i != subGraphs.end(); ++i) {
+			temp_sg = *i;
+			
+			
+			
+		//if it does, select the applicable subGraph
+		//if not,
+			//Create a new subGraph
+			subGraph* temp_sg;
+			temp_sg = new subGraph;
+	
+
+	newSG->subG_edges.push_back(smallest_edge);
+	newSG->isCycle();
+	
 	Graph* NewG;
 	NewG = new Graph;
 	return NewG;
 }
-
+*/
 
 void Graph::DisplayEdges(void){
 	Edge* temp_edge;

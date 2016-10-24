@@ -39,6 +39,24 @@ public:
 };
 /*-------------------------------------------*/
 
+class subGraph {
+public:
+	vector<Node*> subG_verts;
+	vector<Edge*> subG_edges;
+	
+public:
+	subGraph();
+	bool isCycle(void);
+/*
+AB.reserve( A.size() + B.size() ); // preallocate memory
+AB.insert( AB.end(), A.begin(), A.end() );
+AB.insert( AB.end(), B.begin(), B.end() );
+*/
+};
+
+
+/*-------------------------------------------*/
+
 class Graph {
 public:
 	vector<Node*> graph_vector;
@@ -56,6 +74,7 @@ public:
 	Graph* Kruskal(void);
 	void DisplayEdges(void);
 	void ToGraphviz(string fileName);
+	Edge* find_smallest_edge(void);
 };
 /*-------------------------------------------*/
 

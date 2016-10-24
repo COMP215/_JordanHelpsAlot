@@ -1,0 +1,14 @@
+Dijkstra's Algorithm: (Single-source, shortest path)
+-Assign total path cost of infinity to each vertex (meta-data)
+-Update start vertex cost to 0
+-While not_visited is not empty:
+	-Find vertex with smallest total path cost in not_visited
+	-look at all edges incident on this vertex and update graph meta-data
+		-compare weight of edge (s -> A, 9) to infinity
+		-if 9 < infinity, change meta-data to 9, and some structure to store the path it took to get there
+			-we don't need to save old paths if the new one is cheaper (greedy Algorithm)
+		-move this vertex we've been working on (S) to already_visited
+	-repeat loop
+
+		
+	
