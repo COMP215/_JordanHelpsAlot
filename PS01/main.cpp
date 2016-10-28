@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+	/*
 	Graph G;
 	G.AddVertex('S');
 	G.AddVertex('A');
@@ -30,6 +31,7 @@ int main()
 	
 	G.ToGraphviz("graph1.dot");
 	newG->ToGraphviz("graph2.dot");
+	*/
 	
 	
 /*

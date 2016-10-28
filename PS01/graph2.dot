@@ -1,7 +1,7 @@
 digraph G {
 	rankdir=LR;
-	S -- C [label=5]
-	A -- C [label=2]
-	A -- B [label=1]
-	D -- C [label=4]
+	S -> C [label=5]
+	A -> C [label=2]
+	A -> B [label=1]
+	D -> C [label=4]
 }

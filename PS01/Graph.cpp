@@ -308,22 +308,32 @@ subGraph::subGraph()
 {
 }
 
-bool subGraph::isCycle(void){
+bool subGraph::isCycle(Edge* working_edge){
 	cout << "function worked: " << subG_edges.at(0)->weight << endl;
-	
-	
 	return true;
 }
-/*
+
 Graph* Graph::Kruskal(void){
+	bool found_edge = false;
+	int edge_counter = 0, 
+		edge_counter2 = 0, 
+		smallest_edge_index = 0,
+		edge_index_1 = 0,
+		edge_index_2 = 0;
 	Node* temp_node;
 	Edge* smallest_edge;
 	Edge* temp_edge;
+	Edge* temp_edge2;
+	subGraph* working_sg = 0;
 	vector<Node*> visited_verts;
 	vector<Node*> alien_verts;
 	vector<Edge*> visited_edges;
 	vector<Edge*> alien_edges;
-	vector<subGraph*> subGraphs;
+	vector<subGraph*> subGraphs; //master list of all subgraphs present in calculation
+	
+	//Create graph object to eventually return as Kruskal solution
+	Graph* NewG;
+	NewG = new Graph;
 	
 	//Fill alien vertices
 	for (vector<Node*>::iterator i = graph_vector.begin(); i != graph_vector.end(); ++i)
@@ -339,45 +349,185 @@ Graph* Graph::Kruskal(void){
 		alien_edges.push_back(temp_edge);
 	}
 	
+	//While statement begins here:
+	
 	//Find smallest edge in alien edges
-	smallest_edge = master_edge_list.at(0);
-	for (vector<Edge*>::iterator i = alien_edges.begin(); i != alien_edges.end(); ++i)
-	{
-		temp_edge = *i;
-		if (temp_edge->weight < smallest_edge->weight) { 
-			smallest_edge = temp_edge; 
+	if (alien_edges.empty() == false){
+		smallest_edge = master_edge_list.at(0);
+		for (vector<Edge*>::iterator i = alien_edges.begin(); i != alien_edges.end(); ++i)
+		{
+			if (found_edge == false){ //if smallest hasn't been found yet'
+				temp_edge = *i;
+				if (temp_edge->weight < smallest_edge->weight) { 
+					smallest_edge = temp_edge;
+					smallest_edge_index = edge_counter;
+				}
+			}
+			edge_counter++
 		}
-	}	
+	}
+	
+	//Erase smallest edge from alien_edges
+	alien_edges.erase(alien_edges.begin() + smallest_edge_index);
+	
+	//testing
 	cout << "Smallest Edge: " << smallest_edge->vertA << smallest_edge->vertB << " of weight-" << smallest_edge->weight << endl;
 	
+	//Assign names to vertices attached to smallest edge (convenience)
+	Node* a_loc = smallest_edge->vertA_loc;
+	Node* b_loc = smallest_edge->vertB_loc;
+	
 	//check if there are already any subGraphs
-	if (subGraphs.empty()){
-		subGraph* working_sg;
-		working_sg = new subGraph;
-	}
-	else // meaning subGraphs already exist
-		//check if the new edge belongs in an existing subGraph
-		subGraphtemp_sg;
+	if (!subGraphs.empty()){ // if subGraphs is not empty
+		subGraph* temp_sg;
+		
+		//iterate through subgraphs
 		for (vector<subGraph*>::iterator i = subGraphs.begin(); i != subGraphs.end(); ++i) {
 			temp_sg = *i;
 			
+			//reinitialize edge_counter2 for keeping track of temp_sg2's index if merge occurs
+			edge_counter2 = 0;
 			
-			
-		//if it does, select the applicable subGraph
-		//if not,
-			//Create a new subGraph
-			subGraph* temp_sg;
-			temp_sg = new subGraph;
+			//if temp_sg contains vertex A
+			if (temp_sg.references_vertex(a_loc)){ 
+				cout << "found A in temp_sg" << endl;
+				
+				//Assign temp_sg to working_sg in the case of temp_sg being the 
+				//only subgraph to contain A (no merge-conflict)
+				working_sg = temp_sg;
+				
+				//Assign edge_index_1 with edge_counter to preserve index for deletion
+				edge_index_1 = edge_counter;
 	
+				//iterate through subgraphs again looking for vertex A's pair
+				for (vector<subGraph*>::iterator j = subGraphs.begin(); j != subGraphs.end(); ++j) {
+					temp_sg2 = *j;
+					
+					//if both temp_subgraphs are unique and the second contains vertex B
+					if ((temp_sg2 != temp_sg) && (temp_sg2.references_vertex(b_loc))){
+						cout << "found B in temp_sg2" << endl;
+					
+						//Assign edge_index_2 with edge_counter2 to preserve index for deletion
+						edge_index_2 = edge_counter2;
+					
+						//working_sg becomes a merged version of the two subgraphs
+						working_sg = temp_sg.merge_with(temp_sg2);
+						
+						//if adding smallest_edge would make working_sg a circuit - end the test now and continue
+						if(working_sg.isCycle(smallest_edge)){
+							continue;
+						}
+						else{ //working_sg is not a circuit when smallest_edge is added
+							
+							//delete the two subgraphs from the vector of subgraphs
+							subGraphs.erase(subGraphs.begin() + edge_index_1);
+							subGraphs.erase(subGraphs.begin() + edge_index_2);
+							
+							//add working_sg to the vector of subgraphs
+							subGraphs.push_back(working_sg)
+							
+							//test is complete
+						}
+					}
+					
+					//increment edge_counter2 for keeping track of edge2 to delete if merge occurs
+					edge_counter2++;
+					
+				}
+				
+				//ELSE: If we couldn't find vertex A's pair anywhere - assign temp_sg to working_sg
+				working_sg = temp_sg; 
+			}
+			else if (temp_sg.references_vertex(b_loc)){ //if vertex B was in a subgraph 
+			//pasted --------------------------------------------------------------------------------
+				cout << "found B in temp_sg" << endl;
+				
+				//Assign temp_sg to working_sg in the case of temp_sg being the 
+				//only subgraph to contain B (no merge-conflict)
+				working_sg = temp_sg;
+				
+				//Assign edge_index_1 with edge_counter to preserve index for deletion
+				edge_index_1 = edge_counter;
+	
+				//iterate through subgraphs again looking for vertex B's pair
+				for (vector<subGraph*>::iterator j = subGraphs.begin(); j != subGraphs.end(); ++j) {
+					temp_sg2 = *j;
+					
+					//if both temp_subgraphs are unique and the second contains vertex A
+					if ((temp_sg2 != temp_sg) && (temp_sg2.references_vertex(a_loc))){
+						cout << "found A in temp_sg2" << endl;
+					
+						//Assign edge_index_2 with edge_counter2 to preserve index for deletion
+						edge_index_2 = edge_counter2;
+					
+						//working_sg becomes a merged version of the two subgraphs
+						working_sg = temp_sg.merge_with(temp_sg2);
+						
+						//if adding smallest_edge would make working_sg a circuit - end the test now and continue
+						if(working_sg.isCycle(smallest_edge)){
+							continue;
+						}
+						else{ //working_sg is not a circuit when smallest_edge is added
+							
+							//delete the two subgraphs from the vector of subgraphs
+							subGraphs.erase(subGraphs.begin() + edge_index_1);
+							subGraphs.erase(subGraphs.begin() + edge_index_2);
+							
+							//add working_sg to the vector of subgraphs
+							subGraphs.push_back(working_sg)
+						}
+					}
+					
+					//increment edge_counter2 for keeping track of edge2 to delete if merge occurs
+					edge_counter2++;
+					
+				}
+				
+				//ELSE: If we couldn't find vertex B's pair anywhere - assign temp_sg to working_sg
+				working_sg = temp_sg; 
+			}
+				
 
-	newSG->subG_edges.push_back(smallest_edge);
-	newSG->isCycle();
+			}
+			
+			
+			//increment edge_counter for keeping track of edge1 to delete if merge occurs
+			edge_counter++;
+			
+			
+		}
+		
+		//reset edge_counters for further use
+		edge_counter = 0;
+		edge_counter2 = 0;
+		
+		//if working_sg hasn't been assigned yet - start a new subgraph
+		if (working_sg == 0){ 
+			working_sg = new subGraph;
+
+		}
+		
+		//If smallest_edge would make working_sg a circuit - continue to next round
+		if (working_sg.isCycle(smallest_edge)){ 
+			continue;
+		}
+		else{
+			finishedGraph.AddEdge()
+			
+		}
+
+	}
+	else{	// if no subgraphs exist yet
+		working_sg = new subGraph;
+		//TODO: Add working_sg to vector of subgraphs
+	}
+			
+			
 	
-	Graph* NewG;
-	NewG = new Graph;
+	
 	return NewG;
 }
-*/
+
 
 void Graph::DisplayEdges(void){
 	Edge* temp_edge;

@@ -1,10 +1,10 @@
 digraph G {
 	rankdir=LR;
-	S -- A [label=9]
-	A -- B [label=1]
-	B -- D [label=6]
-	D -- C [label=4]
-	B -- C [label=9]
-	A -- C [label=2]
-	S -- C [label=5]
+	S -> A [label=9]
+	A -> B [label=1]
+	B -> D [label=6]
+	D -> C [label=4]
+	B -> C [label=9]
+	A -> C [label=2]
+	S -> C [label=5]
 }

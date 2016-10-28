@@ -46,8 +46,12 @@ public:
 	
 public:
 	subGraph();
-	bool isCycle(void);
+	bool isCycle(Edge* working_edge); // called like "if subg.would_be_cycle_with(smallest_edge)"
+	bool references_vertex(Node* loc_a, Node* loc_b); //called as "if subg.references_vertices(loc_a, loc_b)"
+	subGraph* merge_with(subGraph* subG_for_merge);
+
 /*
+//concatenate 2 vectors
 AB.reserve( A.size() + B.size() ); // preallocate memory
 AB.insert( AB.end(), A.begin(), A.end() );
 AB.insert( AB.end(), B.begin(), B.end() );
