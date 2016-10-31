@@ -311,6 +311,14 @@ subGraph::subGraph()
 bool subGraph::isCycle(Edge* working_edge){
 	cout << "function worked: " << subG_edges.at(0)->weight << endl;
 	return true;
+	
+	
+}
+
+bool subGraph::references_vertex(Node* loc_a, Node* loc_b){
+
+
+
 }
 
 Graph* Graph::Kruskal(void){
@@ -423,21 +431,45 @@ Graph* Graph::Kruskal(void){
 							subGraphs.erase(subGraphs.begin() + edge_index_1);
 							subGraphs.erase(subGraphs.begin() + edge_index_2);
 							
+							//Add edge and vertices to working subgraph
+							//MORE
+							
 							//add working_sg to the vector of subgraphs
 							subGraphs.push_back(working_sg)
-							
-							//test is complete
+
 						}
 					}
 					
-					//increment edge_counter2 for keeping track of edge2 to delete if merge occurs
+								//increment edge_counter2 for keeping track of edge2 to delete if merge occurs
 					edge_counter2++;
 					
-				}
+				} //closes for
+				//ELSE: If we couldn't find vertex B's pair anywhere - assign temp_sg to working_sg
+				//NOTE: We've entered the case where we know A is visited and we know B is not
 				
-				//ELSE: If we couldn't find vertex A's pair anywhere - assign temp_sg to working_sg
-				working_sg = temp_sg; 
+				//MORE
+				working_sg = temp_sg;  
+				
+			} //closes else if
+			//else if vertex B was the one present in a subgraph
+			else if (temp_sg.references_vertex(b_loc)){
+				//MORE
+			
 			}
+			
+			//increment edge_counter for keeping track of edge1 to delete if merge occurs
+			edge_counter++;
+			
+		} //closes for
+	} //closes if
+	
+	//If we make it out here we know for sure that the smallest edge has at 
+	//least one node that does not belong in an existing subgraph
+	
+	//MORE
+			
+			
+			/*
 			else if (temp_sg.references_vertex(b_loc)){ //if vertex B was in a subgraph 
 			//pasted --------------------------------------------------------------------------------
 				cout << "found B in temp_sg" << endl;
@@ -481,21 +513,20 @@ Graph* Graph::Kruskal(void){
 					//increment edge_counter2 for keeping track of edge2 to delete if merge occurs
 					edge_counter2++;
 					
-				}
-				
+				} //closes for
 				//ELSE: If we couldn't find vertex B's pair anywhere - assign temp_sg to working_sg
-				working_sg = temp_sg; 
-			}
+				//NOTE: We've entered the case where we know A is visited and B is not
+				//we still need to check if B was in any of the subgraphs
+				working_sg = temp_sg;  
 				
+				//
+			} //closes else if
+		} //closes for
+	} //closes if
+	*/
+			
+			
 
-			}
-			
-			
-			//increment edge_counter for keeping track of edge1 to delete if merge occurs
-			edge_counter++;
-			
-			
-		}
 		
 		//reset edge_counters for further use
 		edge_counter = 0;
@@ -519,6 +550,8 @@ Graph* Graph::Kruskal(void){
 	}
 	else{	// if no subgraphs exist yet
 		working_sg = new subGraph;
+		working_sg.AddEdge(smallest_edge);
+		//TODO: Add edges and vertices to subgraph
 		//TODO: Add working_sg to vector of subgraphs
 	}
 			
