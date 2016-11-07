@@ -1,0 +1,58 @@
+#include<iostream>
+#include"b.cpp"
+#include"c.h"
+#include <fstream>
+#include <sstream>
+using namespace std;
+
+int* loadArray(int* size){
+	string token;
+	ifstream myfile;
+	myfile.open ("intInput");
+	int tokenArray[100];
+	int counter = 0;
+	if (myfile.is_open()) {
+		while ( getline (myfile,token) ){
+			istringstream convert_string_to_int(token);
+			convert_string_to_int >> tokenArray[counter];
+			counter++;
+		}
+	}
+	myfile.close();
+	*size = counter;
+	return (tokenArray);
+}
+
+void printArray(int* tokenArray){
+	for (short i=0; i < 4; i++){
+		cout << tokenArray[i] << endl;
+	}
+}
+
+void divide(int* tokenArray, int size){
+	if (size <= 1){
+		
+	}
+
+
+}
+
+void mergeSort(int* tokenArray, int size){
+	
+
+
+}
+
+int main(){
+
+	int size = 0;
+	int* tokenArray = loadArray(&size);
+	printArray(tokenArray);
+	cout << "size: " << size << endl;
+	mergeSort(tokenArray, size);
+	
+	
+	return 0;
+	
+	}
+	
